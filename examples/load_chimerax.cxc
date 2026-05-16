@@ -1,0 +1,21 @@
+# Example: open a structure, then enable the depth-tube on its chain A.
+# Edit the paths before running.
+
+open ~/Downloads/1bvk.pdb
+cartoon
+color bychain
+set bgColor white
+graphics silhouettes true
+lighting soft
+
+# Load the script (registers `depthtube` and `~depthtube` commands).
+runscript ~/repos/depth-tube/chimerax_depth_tube.py
+
+# Enable on a single chain.
+depthtube #1/A
+
+# Try a custom proximal/distal contrast:
+# depthtube #1/B r_proximal 0.7 r_distal 0.04 zoom_d_max 200
+
+# Disable everything:
+# ~depthtube
