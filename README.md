@@ -14,6 +14,29 @@ This makes near loops read as fat / saturated and far loops as thin —
 strong spatial cueing for crowded interfaces, flexible loops, and
 docking poses.
 
+## Motivation
+
+Reading depth from a static 2D molecular‑viewer image is one of the
+hardest things in structural biology. Conventional rendering (cartoon,
+ribbon, surface) gives every residue the same line weight, so a loop in
+the foreground and a loop on the far side of the molecule look
+identical until you rotate the scene — and the moment the camera stops
+moving, the depth cue is gone. Stereo, fog, and shadows help a little
+but are easy to misread on a flat display.
+
+`depth-tube` rebinds tube radius to camera distance every frame, so
+**depth localisation is visually graspable at a glance**, even on a
+still image or in a screenshot. Near loops are fat; far loops are thin;
+the gradient is continuous, not categorical.
+
+As a **secondary effect**, the radius drop‑off makes the **interface
+between two protein complexes** much easier to relate spatially: the
+two chains' tubes hit their fattest values exactly where they face the
+camera, and the contact region between them stands out from the
+back‑facing surfaces. This is especially useful when triaging docking
+poses, antibody–antigen contacts, or any binary protein assembly where
+the interface geometry is the thing you actually care about.
+
 ## ChimeraX
 
 ```text
